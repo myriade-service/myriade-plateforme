@@ -1,0 +1,324 @@
+# ============================
+# 🏢 ENTERPRISE JAVA PROJECT
+# MYRIADE-PLATEFORME
+# ============================
+
+# 🔒 SÉCURITÉ - NE JAMAIS COMMITTER !
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+.secrets/
+.vault/
+*.key
+*.pem
+*.p12
+*.crt
+*.cer
+*.jks
+*.keystore
+*.truststore
+credentials.json
+service-account-key.json
+application-prod.yml
+application-staging.yml
+
+# 🔑 SECRETS DIVERS
+**/secrets/
+**/config/secret*
+**/private/
+**/keys/
+**/passwords.txt
+**/access_tokens.txt
+**/oauth2-*.json
+
+# 👤 ENVIRONNEMENT LOCAL
+.idea/
+*.iml
+*.iws
+*.ipr
+.DS_Store
+Thumbs.db
+
+# 🛠️ OUTILS DE DÉVELOPPEMENT
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# ☕ JAVA
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+
+# 🐍 MAVEN
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+.m2/
+
+# 🌿 GRADLE
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+# 💾 BASE DE DONNÉES
+*.db
+*.sqlite
+*.h2.db
+hs_err_pid*
+dump.rdb
+
+# 🐳 DOCKER
+docker-compose.override.yml
+**/docker-data/
+**/volumes/
+**/mysql-data/
+**/postgres-data/
+**/redis-data/
+
+# ☁️ AWS/CLOUD
+.aws/
+.gcp/
+.azure/
+**/cloudformation/*.local.yaml
+
+# 🧪 TESTS & REPORTS
+**/test-output/
+**/test-results/
+**/reports/
+**/coverage/
+**/jacoco/
+**/surefire-reports/
+**/failsafe-reports/
+**/performance-results/
+*.log
+
+# 📊 DOCS GÉNÉRÉES
+**/generated/
+**/apidocs/
+**/javadoc/
+**/site/
+_project/
+_site/
+
+# 🔧 INTELLIJ IDEA
+out/
+.idea_modules/
+
+# 🍎 MAC OS
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+
+# 🪟 WINDOWS
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# 📁 LOGS
+*.log
+logs/
+**/logs/
+**/*.log.*
+**/temp/
+**/tmp/
+
+# 🚀 DÉPLOIEMENT
+**/deploy/
+**/.serverless/
+**/.terraform/
+**/.terragrunt-cache/
+**/*.tfstate
+**/*.tfstate.*
+**/.terraform.lock.hcl
+
+# 🧹 FICHIERS TEMPORAIRES
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.backup
+
+# 📦 NODE/NPM (si frontend inclus)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# 🐍 PYTHON (si scripts Python)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# ============================
+# 🎯 FICHIERS SPÉCIFIQUES PROJET
+# ============================
+
+# 📁 src/main/resources/ (exceptions contrôlées)
+!src/main/resources/application.yml
+src/main/resources/application-*.yml
+!src/main/resources/application-example.yml
+
+# ✅ On garde les examples, on exclut les vrais
+src/main/resources/application-dev.yml
+src/main/resources/application-prod.yml
+src/main/resources/application-staging.yml
+
+# 📁 Certificats (exceptions contrôlées)
+!src/main/resources/certs/README.md
+src/main/resources/certs/*.p12
+src/main/resources/certs/*.jks
+src/main/resources/certs/*.pem
+
+# 📁 Configuration locale
+.local/
+personal/
+my-config/
+
+# 📁 Backup scripts générés
+backups/
+!backups/.keep
+
+# 📁 Uploads/Téléchargements
+uploads/
+downloads/
+temp-uploads/
+
+# ============================
+# 🛡️ FICHIERS SENSIBLES PAR EXTENSION
+# ============================
+
+# 🔐 Fichiers de propriétés sensibles
+**/*.properties
+!src/test/resources/application-test.yml
+
+# 🗝️ Fichiers de configuration Java
+**/jvm.config
+**/logging.properties
+
+# 📄 Fichiers de licence personnelle
+license.key
+activation.code
+
+# ============================
+# 🎪 ENVIRONNEMENTS SPÉCIFIQUES
+# ============================
+
+# 🧪 ENV DE TEST
+**/.env.test
+**/test-env/
+
+# 🚀 ENV DE PRODUCTION
+**/prod-secrets/
+**/production-config/
+
+# 👨‍💻 ENV DE DÉVELOPPEMENT PERSONNEL
+**/.env.development.local
+**/personal-config/
+
+# ============================
+# 🏗️ INFRASTRUCTURE AS CODE
+# ============================
+
+# 🏗️ TERRAFORM
+**/.terraform.tfstate.lock.info
+
+# ☸️ KUBERNETES
+**/kubeconfig
+**/.kube/
+**/*-kubeconfig.yaml
+
+# 🔐 VAULT (Hashicorp)
+**/.vault-token
+
+# ============================
+# 🧪 EXCEPTIONS - CE QU'ON COMMIT
+# ============================
+
+# ✅ On COMMIT ces fichiers
+!src/main/resources/db/migration/
+!src/main/resources/db/changelog/
+!src/main/resources/logback-spring.xml
+
+# ✅ Fichiers de configuration exemple
+!**.example
+!**.sample
+!**.template
+
+# ✅ Documentation
+!docs/
+!README.md
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+
+# ✅ Scripts utilitaires (sans secrets)
+!scripts/
+!docker-compose.yml
+!docker-compose.test.yml
+!Makefile
+
+# ============================
+# 🔍 FICHIERS À VÉRIFIER MANUELLEMENT
+# ============================
+
+# ❌ VÉRIFIEZ QUE VOUS N'AVEZ PAS :
+# - Des clés API dans le code
+# - Des mots de passe en clair
+# - Des URLs de production
+# - Des certificats privés
+# - Des configurations personnelles
+
+# ============================
+# 🚨 CHECKLIST AVANT COMMIT
+# ============================
+
+# 1. git status --ignored
+# 2. git diff --cached
+# 3. Vérifier les fichiers .yml/.properties
+# 4. Vérifier les fichiers .key/.pem/.jks
+# 5. Scanner avec: git secrets --scan
+
+# ============================
+# ⚙️ CONFIGURATION GIT AVANCÉE
+# ============================
+
+# Pré-commit hook pour vérifier les secrets
+# .git/hooks/pre-commit
+#!/bin/sh
+# git secrets --scan --cached
+# exit_code=$?
+# if [ $exit_code -eq 1 ]; then
+#   echo "🚨 SECRETS DETECTED! Aborting commit."
+#   exit 1
+# fi
