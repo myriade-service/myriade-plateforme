@@ -1,0 +1,93 @@
+version: 2
+updates:
+  # ============================================
+  # 1. MAVEN - Dépendances Java (Spring Boot)
+  # ============================================
+  - package-ecosystem: "maven"
+    directory: "/"  # Racine du projet (où est pom.xml)
+    schedule:
+      interval: "weekly"      # Scan tous les lundis
+      day: "monday"
+      time: "09:00"          # 9h du matin
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 5  # Max 5 PR ouvertes en même temps
+    labels:
+      - "dependencies"
+      - "java"
+      - "spring"
+    assignees:
+      - "myriade-service"  # Remplace par ton username
+    reviewers:
+      - "myriade-service"  # Pour te notifier
+    commit-message:
+      prefix: "chore(deps)"    # Format conventionnel
+      prefix-development: "chore(deps-dev)"
+    ignore:
+      # Ignore les MAJ majeures de Spring Boot (3.x -> 4.x)
+      - dependency-name: "org.springframework.boot:*"
+        update-types: ["version-update:semver-major"]
+      # Ignore les tests si tu veux
+      - dependency-name: "*junit*"
+        update-types: ["version-update:semver-major"]
+
+  # ============================================
+  # 2. GITHUB ACTIONS - Workflows CI/CD
+  # ============================================
+  - package-ecosystem: "github-actions"
+    directory: "/"  # Racine (tous les workflows)
+    schedule:
+      interval: "monthly"     # Une fois par mois
+      day: "first-monday"     # Premier lundi du mois
+      time: "10:00"
+      timezone: "Europe/Paris"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "ci-cd"
+    open-pull-requests-limit: 3
+
+  # ============================================
+  # 3. DOCKER - Images Docker
+  # ============================================
+  - package-ecosystem: "docker"
+    directory: "/"  # Pour ton Dockerfile principal
+    schedule:
+      interval: "monthly"
+    labels:
+      - "dependencies"
+      - "docker"
+      - "infrastructure"
+    ignore:
+      # Java version - mise à jour gérée par Maven
+      - dependency-name: "openjdk"
+        update-types: ["version-update:semver-major"]
+      # Base images importantes - review manuelle
+      - dependency-name: "postgres"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "redis"
+        update-types: ["version-update:semver-major"]
+
+  # ============================================
+  # 4. TERRAFORM - Infrastructure as Code
+  # ============================================
+  - package-ecosystem: "terraform"
+    directory: "/terraform"  # Ton dossier Terraform
+    schedule:
+      interval: "monthly"
+    labels:
+      - "dependencies"
+      - "terraform"
+      - "infrastructure"
+
+  # ============================================
+  # 5. DOCKER COMPOSE - pour le dev local
+  # ============================================
+  - package-ecosystem: "docker"
+    directory: "/docker"  # Dossier avec docker-compose
+    schedule:
+      interval: "monthly"
+    labels:
+      - "dependencies"
+      - "docker-compose"
+      - "development"
+    target-branch: "dev"  # Va sur ta branche dev si tu en as une
