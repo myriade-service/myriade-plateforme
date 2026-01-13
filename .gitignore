@@ -4,7 +4,25 @@
 # ============================
 
 # 🔒 SÉCURITÉ - NE JAMAIS COMMITTER !
+gitignore
+# Secrets
+
+**/*secrets*.yaml
+**/*.secret.*
+helm/secrets/
+terraform.tfvars
+*.tfvars
+terraform/.terraform/
+terraform/environments/*/terraform.tfvars
 .env
+.dockerignore
+scripts/private/
+scripts/*.local.sh
+
+# Terraform state
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
 .env.local
 .env.*.local
 .env.production
